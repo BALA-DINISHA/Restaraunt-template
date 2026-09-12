@@ -1,3 +1,4 @@
+/*------------------ HERO SECTION ---------------------------------------------------- */
 .hero
 {
   min-height: 80vh;
@@ -33,4 +34,41 @@
   cursor: pointer;
  font-size: 16px;
   border: none;
+}
+
+/*--------------------------- ABOUT SECTION ----------------------------------------------*/
+
+.about
+{
+  padding: 80px 10%;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.about-image
+{
+  flex:1;
+}
+.about-image img
+{
+  width: 100%;
+  display: block;
+}
+.about-content 
+{
+  flex:1;
+}
+.about-content h2
+{
+  font-size: 40px;
+  margin: 15px 0;
+}
+.about-content p{
+  line-height: 1.7;
+}
+.about-content button
+{
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
 }
