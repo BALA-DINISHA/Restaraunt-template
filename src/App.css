@@ -1,4 +1,36 @@
 .hero
 {
   min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+
+    background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+    background-size: cover;
+    background-position: center;
+}
+.hero-content
+{
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 50px;
+  color: white;
+}
+.hero-content h1
+{
+  font-size: 48px;
+  margin-bottom: 15px 0;
+}
+.hero-content p
+{
+  font-size: 16px;
+}
+.hero-content button
+{
+
+  padding: 12px 25px;
+  cursor: pointer;
+ font-size: 16px;
+  border: none;
 }
