@@ -2,16 +2,19 @@
 function Hero()
 {
     return(
-        <section className="hero">
+        <section className="hero" id="home">
            
-           <div className="hero-content">
-            <p>WELCOME TO</p>
-             <h1>AROMA RESTAURANT</h1>
-            <p>Experience delicious food and beautiful moments.</p>
+           <div className="hero-overlay"></div>
 
-            <button>
+           <div className="hero-content">
+            <p className="hero-subtitle">WELCOME TO</p>
+             <h1>AROMA RESTAURANT</h1>
+
+            <p className="hero-description">Authentic flavors, memeorable moments.</p>
+
+            <a href="#menu" className="hero-button">
                 Explore Our Menu
-            </button>
+            </a>
             </div>
         </section>
     )
