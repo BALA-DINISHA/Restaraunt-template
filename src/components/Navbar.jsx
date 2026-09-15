@@ -1,11 +1,11 @@
 
 function Navbar(props){
-    const navItems = ["Home", "About", "Menu", "Gallery","Contact"];
+    const navItems = ["Home", "About", "Menu", "Gallery","Events","Contact"];
     return(
-        <nav>
+        <nav className="navbar">
             
-            <h2>{props.restaurantName}</h2>
-            <div>
+            <h2 className="logo">{props.restaurantName}</h2>
+            <div className="nav-links">
                 {
                     navItems.map(item=>(
                         <a key={item} href={`#${item.toLowerCase()}`}>{item}</a>
