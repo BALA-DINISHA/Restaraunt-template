@@ -1,0 +1,183 @@
+/* =====================================================
+   ABOUT SECTION — Editorial / Elegant
+   ===================================================== */
+
+.about {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 5rem);
+
+  /* Soft, warm off-white background */
+  background:
+    radial-gradient(circle at 20% 20%, #fbf8f4 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, #f6f1ea 0%, transparent 60%),
+    #f9f6f2;
+}
+
+/* --- Decorative side images (spice bowls) --- */
+.about-decoration {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  width: clamp(70px, 10vw, 140px);
+  pointer-events: none; /* decorative only */
+  user-select: none;
+}
+
+.about-decoration--left  { left:  clamp(1rem, 5vw, 6rem); }
+.about-decoration--right { right: clamp(1rem, 5vw, 6rem); }
+
+.about-decoration img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow:
+    0 10px 25px rgba(30, 42, 58, 0.12),
+    0 4px 10px  rgba(30, 42, 58, 0.06);
+  transition: transform 0.4s ease;
+}
+
+.about-decoration img:hover {
+  transform: scale(1.05);
+}
+
+/* --- The framed card --- */
+.about-card {
+  position: relative;
+  max-width: 640px;
+  width: 100%;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
+  background: #fdfcf9;
+  border: 3px solid #1e2a3a;
+  text-align: center;
+  z-index: 1;
+}
+
+/* --- Overline: "About Us" in script --- */
+.about-label {
+  display: block;
+ 
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  color: #e87423;
+  margin: 0 0 0.75rem;
+  line-height: 1;
+}
+
+/* --- Heading: "LOVE FOR FOOD" --- */
+.about-heading {
+  
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #1e2a3a;
+  margin: 0 0 1.25rem;
+}
+
+/* Highlighted part of heading (optional) */
+.about-highlight {
+  color: #e87423;
+}
+
+/* --- Ornamental divider: line — dot — line --- */
+.about-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0 auto 2rem;
+}
+
+.about-divider::before,
+.about-divider::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #c47a3d;
+}
+
+.about-divider span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e87423;
+}
+
+/* --- Paragraphs --- */
+.about-paragraph {
+
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.9;
+  color: #4a5461;
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.about-paragraph:last-of-type {
+  margin-bottom: 2rem;
+}
+
+/* --- CTA --- */
+.about-button {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid #1e2a3a;
+  background: transparent;
+  color: #1e2a3a;
+  font-family: "Playfair Display", serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.about-button:hover {
+  background: #1e2a3a;
+  color: #fdfcf9;
+}
+
+.about-button:focus-visible {
+  outline: 2px solid #e87423;
+  outline-offset: 4px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .about-decoration {
+    display: none; /* hide spice bowls on tablet & below */
+  }
+  .about-card {
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-heading {
+    font-size: 1.5rem;
+  }
+  .about-label {
+    font-size: 1.75rem;
+  }
+  .about-paragraph {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-decoration img {
+    transition: none;
+  }
+}

@@ -1,10 +1,11 @@
 
-import { useState ,useEffect} from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Navbar from "./sections/Navbar";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
 import "./App.css";
-import OpeningHours from "./components/OpeningHours";
-import About from "./components/About";
+import { aboutContent } from "./data/restaurantData";
+
+
 function App() {
 
 
@@ -12,8 +13,7 @@ function App() {
     <>
       <Navbar restaurantName="AROMA" />
       <Hero />
-     <OpeningHours />
-     <About/>
+       <About {...aboutContent} />
     </>
   );
 }
