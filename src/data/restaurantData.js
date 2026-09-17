@@ -16,10 +16,11 @@ export const aboutContent = {
   },
 
   decorationImages:[
-    "src/assets/images/spice-1.jpg",
+    
     "src/assets/images/spice-2.jpg",
     "src/assets/images/spice-3.jpg",
     "src/assets/images/spice-4.jpg",
   ],
+  mainImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc1b0GoB0ew9zvJIDr0d1lBaNEvb3Pg_fMdi6hU3LqAw&s=10"
 };
 

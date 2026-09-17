@@ -1,5 +1,16 @@
+:root {
+  --bg-main: #580707;
+ --card-bg: hsla(240, 2%, 16%, 0.658);
+  --border-gold: #C87D55;
+  --accent-primary: #E07A5F;
+  --text-heading: #F4F1DE;
+  --text-body: #bdb6ac;
+  --button-hover-bg: #E07A5F;
+  --button-hover-text: #181616;
+}
+
 /* =====================================================
-   ABOUT SECTION — Editorial / Elegant
+    ABOUT SECTION — Editorial / Elegant Layout
    ===================================================== */
 
 .about {
@@ -9,91 +20,97 @@
   justify-content: center;
   min-height: 100vh;
   padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 5rem);
-
-  /* Soft, warm off-white background */
-  background:
-    radial-gradient(circle at 20% 20%, #fbf8f4 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, #f6f1ea 0%, transparent 60%),
-    #f9f6f2;
-}
-
-/* --- Decorative side images (spice bowls) --- */
-.about-decoration {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  width: clamp(70px, 10vw, 140px);
-  pointer-events: none; /* decorative only */
-  user-select: none;
-}
-
-.about-decoration--left  { left:  clamp(1rem, 5vw, 6rem); }
-.about-decoration--right { right: clamp(1rem, 5vw, 6rem); }
-
-.about-decoration img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow:
-    0 10px 25px rgba(30, 42, 58, 0.12),
-    0 4px 10px  rgba(30, 42, 58, 0.06);
-  transition: transform 0.4s ease;
-}
-
-.about-decoration img:hover {
-  transform: scale(1.05);
-}
-
-/* --- The framed card --- */
-.about-card {
-  position: relative;
-  max-width: 640px;
-  width: 100%;
-  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
-  background: #fdfcf9;
-  border: 3px solid #1e2a3a;
-  text-align: center;
-  z-index: 1;
-}
-
-/* --- Overline: "About Us" in script --- */
-.about-label {
-  display: block;
  
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 600;
-  color: #e87423;
-  margin: 0 0 0.75rem;
-  line-height: 1;
+  /* Add background image with overlay */
+  background: 
+    linear-gradient(to top,
+    rgba(0, 0, 0, 0.7),
+    rgba(5, 5, 5, 0.25),
+    rgba(0, 0, 0, 0.658)),
+    url("../assets/about-section-background.png") center/cover no-repeat fixed;
 }
 
-/* --- Heading: "LOVE FOR FOOD" --- */
-.about-heading {
-  
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1.15;
-  text-transform: uppercase;
-  color: #1e2a3a;
-  margin: 0 0 1.25rem;
-}
-
-/* Highlighted part of heading (optional) */
-.about-highlight {
-  color: #e87423;
-}
-
-/* --- Ornamental divider: line — dot — line --- */
-.about-divider {
+.about-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 1100px;
+  width: 100%;
+  z-index: 1;
+}
+
+.about-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  max-width: 1050px;
+  width: 100%;
+  padding: clamp(2.5rem, 5vw, 4rem);
+  background: var(--card-bg);
+  border: 1px solid rgba(75, 74, 74, 0.3);
+  border-radius:  35px 35px 35px 35px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.445);
+  text-align: left;
+}
+
+/* --- STATIC IMAGE STYLING (Animations Removed) --- */
+.about-image-wrapper {
+  flex: 1;
+  max-width: 450px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Static decorative offset border frame behind the image */
+
+.about-image-wrapper img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0px 50px 0px 50px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  display: block;
+  filter: grayscale(15%) contrast(105%);
+}
+
+.about-content-wrapper {
+  flex: 1.2;
+}
+
+.about-label {
+  display: block;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.about-heading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  margin: 0 0 1rem;
+}
+
+.about-highlight {
+  color: var(--border-gold);
+}
+
+/* --- DIVIDER & SPAN FIX --- */
+.about-divider {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   gap: 0.6rem;
-  margin: 0 auto 2rem;
+  margin: 0 0 1.5rem;
 }
 
 .about-divider::before,
@@ -102,82 +119,129 @@
   display: block;
   width: 40px;
   height: 1px;
-  background: #c47a3d;
+  background: var(--border-gold);
+  opacity: 0.6;
 }
 
 .about-divider span {
+  display: inline-block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #e87423;
+  background: var(--accent-primary);
+  flex-shrink: 0;
+  animation: pulseDot 2.5s infinite ease-in-out;
 }
 
-/* --- Paragraphs --- */
-.about-paragraph {
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
 
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  line-height: 1.9;
-  color: #4a5461;
-  margin: 0 0 1.25rem;
+.about-paragraph {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.8;
+  color: var(--text-body);
+  margin: 0 0 1rem;
   letter-spacing: 0.01em;
 }
 
 .about-paragraph:last-of-type {
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
-/* --- CTA --- */
+/* --- ENHANCED BUTTON WITH SHIMMER EFFECT --- */
 .about-button {
+  position: relative;
   display: inline-block;
   padding: 0.75rem 1.75rem;
-  border: 1px solid #1e2a3a;
+  border: 1px solid var(--border-gold);
   background: transparent;
-  color: #1e2a3a;
+  color: var(--accent-primary);
   font-family: "Playfair Display", serif;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.about-button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: left 0.6s ease;
 }
 
 .about-button:hover {
-  background: #1e2a3a;
-  color: #fdfcf9;
+  background: var(--button-hover-bg);
+  color: var(--button-hover-text);
+  border-color: var(--button-hover-bg);
+}
+
+.about-button:hover::after {
+  left: 130%;
 }
 
 .about-button:focus-visible {
-  outline: 2px solid #e87423;
+  outline: 2px solid var(--accent-primary);
   outline-offset: 4px;
 }
 
-/* --- Responsive --- */
+/* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 900px) {
-  .about-decoration {
-    display: none; /* hide spice bowls on tablet & below */
-  }
   .about-card {
-    border-width: 2px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .about-image-wrapper {
+    max-width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-divider {
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
+  .about {
+    padding: 2rem 1rem;
+  }
+  .about-image-wrapper {
+    max-width: 100%;
+  }
   .about-heading {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .about-label {
-    font-size: 1.75rem;
+    font-size: 1.1rem;
   }
   .about-paragraph {
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .about-decoration img {
-    transition: none;
+    font-size: 0.9rem;
+    line-height: 1.7;
   }
 }
