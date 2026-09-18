@@ -1,0 +1,332 @@
+/* =========================================================
+   MENU — Premium Editorial Dark Theme
+   ========================================================= */
+
+.menu {
+  --menu-bg-cement: #0f0e0c;
+  --menu-card-bg: #141210;
+  --menu-border-gold: #E07A5F;
+  --menu-border-subtle: rgba(224, 122, 95, 0.25);
+  --menu-accent-primary: #E07A5F;
+  --menu-text-heading: #FAF8F5;
+  --menu-text-body: #C4BCAE;
+  --menu-text-muted: #8A8275;
+  --menu-bg-image: url('https://img.magnific.com/free-photo/top-view-bowl-with-lentils-variety-condiments_1220-423.jpg?semt=ais_hybrid&w=740&q=80');
+  --menu-overlay: linear-gradient(180deg, rgba(15, 14, 12, 0.9) 0%, rgba(15, 14, 12, 0.97) 100%);
+}
+
+.menu {
+  position: relative;
+  background-image: var(--menu-overlay), var(--menu-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--menu-bg-cement);
+  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem);
+  color: var(--menu-text-body);
+}
+
+/* ---------- Header ---------- */
+.menu-header {
+  max-width: 760px;
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+}
+
+.menu-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--menu-accent-primary);
+  margin-bottom: 0.5rem;
+}
+
+.menu-heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.menu-heading-top { color: var(--menu-text-heading); }
+.menu-heading-bottom { color: var(--menu-accent-primary); }
+
+.menu-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  max-width: 200px;
+}
+
+.menu-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--menu-accent-primary), transparent);
+}
+
+.menu-diamond {
+  color: var(--menu-accent-primary);
+  font-size: 0.7rem;
+}
+
+/* ---------- Carousel & Controls ---------- */
+.menu-carousel-wrapper {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3.5rem;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #181614;
+  border: 1.5px solid var(--menu-border-gold);
+  color: var(--menu-accent-primary);
+  font-size: 2.2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-arrow:hover {
+  background: var(--menu-accent-primary);
+  color: #0f0e0c;
+  box-shadow: 0 0 18px rgba(224, 122, 95, 0.4);
+}
+
+.arrow-left { left: 0; }
+.arrow-right { right: 0; }
+
+/* ---------- Single Card Display ---------- */
+.single-card-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Allows natural height expansion */
+}
+/* =========================================================
+   GLASSMORPHISM & INTERACTIVE CARD STYLES
+   ========================================================= */
+
+.menu-card {
+  position: relative;
+  width: 100%;
+  
+  /* Remove fixed height constraints */
+  height: auto; 
+  min-height: fit-content;
+  
+  /* Glassmorphism styling */
+  background: rgba(22, 20, 18, 0.55);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  
+  /* Thick border & glass edges */
+  border: 2px solid rgba(224, 122, 95, 0.4);
+  outline: 1px solid rgba(224, 122, 95, 0.2);
+  outline-offset: -8px;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  
+  /* Smooth size transitions when switching tabs */
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  user-select: none;
+}
+/* Hover Effect: Soft Lift & Shimmer */
+.menu-card:hover {
+  background: rgba(28, 25, 22, 0.65);
+  border-color: rgba(224, 122, 95, 0.7);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
+              0 0 25px rgba(224, 122, 95, 0.15),
+              inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Click/Active State: Tactile Press Down Effect */
+.menu-card:active {
+  transform: translateY(2px) scale(0.985);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7),
+              inset 0 0 15px rgba(0, 0, 0, 0.5);
+  border-color: var(--menu-accent-primary);
+  transition: transform 0.08s ease;
+}
+
+/* Inner Glass Highlight Gradient */
+.menu-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    180deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    transparent 100%
+  );
+  border-radius: 14px 14px 0 0;
+  pointer-events: none;
+}
+@keyframes fadeIn {
+  from { opacity: 0.5; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-category-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.05em;
+  color: var(--menu-text-heading);
+  text-align: center;
+  margin: 0;
+}
+
+.card-category-subtitle {
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--menu-accent-primary);
+  margin-bottom: 2rem;
+}
+
+/* ---------- Item List Styling ---------- */
+.menu-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Click/Active press effect */
+.menu-card:active {
+  transform: scale(0.985);
+  transition: transform 0.08s ease;
+}
+.menu-list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.item-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--menu-text-heading);
+}
+
+/* Refined Dot Leaders */
+.item-dots {
+  flex: 1;
+  height: 1px;
+  border-bottom: 1px dotted var(--menu-text-muted);
+  opacity: 0.4;
+  margin: 0 0.75rem;
+}
+
+.item-price {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--menu-accent-primary);
+}
+
+.item-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--menu-text-body);
+  margin: 0.25rem 0 0 0;
+}
+
+/* ---------- Circular Image Frame ---------- */
+.card-media-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.image-frame-circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--menu-border-gold), transparent);
+  border: 1px solid var(--menu-border-gold);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.image-frame-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Carousel Dots ---------- */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--menu-text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--menu-accent-primary);
+  width: 24px;
+  border-radius: 12px;
+}
+
+/* ---------- Mobile Layout ---------- */
+@media (max-width: 600px) {
+
+    .menu-carousel-wrapper {
+    padding: 0 2rem;
+  }
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.8rem;
+  }
+  .arrow-left { left: -5px; }
+  .arrow-right { right: -5px; }
+  .menu-card { padding: 2rem 1.25rem; outline-offset: -5px; }
+  .image-frame-circle { width: 140px; height: 140px; }
+}

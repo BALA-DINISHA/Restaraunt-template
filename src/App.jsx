@@ -4,7 +4,7 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import "./App.css";
 import { aboutContent } from "./data/restaurantData";
-
+import Menu from "./sections/menu";
 
 function App() {
 
@@ -14,6 +14,7 @@ function App() {
       <Navbar restaurantName="AROMA" />
       <Hero />
        <About {...aboutContent} />
+       <Menu />
     </>
   );
 }
