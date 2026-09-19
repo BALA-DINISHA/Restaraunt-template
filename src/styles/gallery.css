@@ -1,34 +1,38 @@
 /* =========================================================
    GALLERY — Full-Width Horizontal Strip
-   Dark Cement Theme (matches Menu section)
+   Dark Editorial + Coral Accent (matches Menu)
    ========================================================= */
 
 .gallery {
   position: relative;
 
-  /* 🎨 DARK CEMENT PALETTE */
-  --g-bg-cement: #1b1c1e;
-  --g-card-bg: rgba(28, 30, 34, 0.75);
-  --g-border: #3a3d45;
-  --g-accent: #a8b2c1;
-  --g-heading: #f0f2f5;
-  --g-body: #b8bcc4;
-  --g-hover-bg: #3a3d45;
+  /* 🎨 PALETTE — mirrors the Menu section */
+  --g-bg-base: #181616;
+  --g-card-bg: hsla(240, 2%, 16%, 0.658);
+  --g-border-gold: #C87D55;
+  --g-accent: #E07A5F;
+  --g-text-heading: #F4F1DE;
+  --g-text-body: #bdb6ac;
+  --g-hover-bg: #E07A5F;
+  --g-hover-text: #181616;
 
   /* 🖼️ BACKGROUND IMAGE + OVERLAY */
   --g-bg-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1920&q=80');
-  --g-overlay: linear-gradient(rgba(18, 19, 22, 0.9), rgba(18, 19, 22, 0.95));
+  --g-overlay: linear-gradient(
+    rgba(18, 17, 22, 0.9),
+    rgba(18, 17, 22, 0.95)
+  );
 
   background-image: var(--g-overlay), var(--g-bg-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: var(--g-bg-cement);
+  background-color: var(--g-bg-base);
 
-  /* NOTE: no horizontal padding here — strip should be full-width */
+  /* No horizontal padding — strip runs edge-to-edge */
   padding: clamp(4rem, 10vw, 7rem) 0 clamp(3rem, 8vw, 5rem);
-  color: var(--g-body);
+  color: var(--g-text-body);
   overflow: hidden;
 }
 
@@ -41,47 +45,68 @@
 }
 
 .gallery-label {
-  font-family: "Inter", system-ui, sans-serif;
-  font-size: 0.75rem;
+ 
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--g-accent);
-  margin: 0 0 0.75rem;
+  margin: 0 0 1.25rem;
 }
 
 .gallery-heading {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
+
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  margin: 0 0 1rem;
-  letter-spacing: -0.01em;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
 }
 
-.gallery-heading-top    { color: var(--g-heading); }
-.gallery-heading-bottom { color: var(--g-accent); }
+.gallery-heading-top    { color: var(--g-text-heading); }
+.gallery-heading-bottom {
+  color: var(--g-accent);
+  font-style: italic;
+}
 
 .gallery-underline {
   display: block;
-  width: 80px;
+  width: 72px;
   height: 2px;
-  background-color: var(--g-border);
-  margin: 0 auto 1.5rem;
+  background: var(--g-border-gold);
+  margin: 0 auto 2rem;
 }
 
 .gallery-subtitle {
-  font-family: "Inter", system-ui, sans-serif;
+ 
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  line-height: 1.7;
-  color: var(--g-body);
-  margin: 0;
+  line-height: 1.75;
+  color: var(--g-text-body);
+  margin: 0 auto;
+  max-width: 52ch;
 }
 
+/* ---------- Strip wrapper ---------- */
 /* ---------- Strip wrapper ---------- */
 .gallery-strip-wrap {
   position: relative;
   width: 100%;
+
+  /* Soft fade at edges so autoscroll looks intentional */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
 }
 
 /* ---------- The horizontally-scrolling strip ---------- */
@@ -90,13 +115,11 @@
   gap: 1rem;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding: 1rem clamp(1.5rem, 6vw, 5rem) 2rem;
   cursor: grab;
   -webkit-overflow-scrolling: touch;
 
-  /* Hide scrollbar (Chrome/Safari/Firefox) */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -116,17 +139,15 @@
   position: relative;
   flex: 0 0 clamp(280px, 42vw, 480px);
   height: clamp(340px, 55vh, 560px);
-  border: 1px solid var(--g-border);
+  border: 1px solid var(--g-border-gold);
   border-radius: 16px;
   overflow: hidden;
   background: var(--g-card-bg);
   padding: 0;
   cursor: pointer;
-  scroll-snap-align: start;
   transition: transform 0.4s ease, border-color 0.3s ease,
               box-shadow 0.4s ease;
 }
-
 .strip-item:hover,
 .strip-item:focus-visible {
   transform: translateY(-4px);
@@ -145,7 +166,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.75);
+  filter: brightness(0.75) saturate(1.05);
   transition: transform 0.7s ease, filter 0.4s ease;
   user-select: none;
   -webkit-user-drag: none;
@@ -154,7 +175,7 @@
 .strip-item:hover .strip-img,
 .strip-item:focus-visible .strip-img {
   transform: scale(1.08);
-  filter: brightness(1);
+  filter: brightness(1) saturate(1.05);
 }
 
 /* ---------- Caption overlay ---------- */
@@ -187,20 +208,24 @@
 }
 
 .strip-caption {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   font-weight: 600;
-  color: var(--g-heading);
+  color: var(--g-text-heading);
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
-/* Soft gradient behind caption so text is readable */
+/* Soft gradient behind caption so text stays readable */
 .strip-item::after {
   content: "";
   position: absolute;
   inset: auto 0 0 0;
   height: 50%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  background: linear-gradient(
+    to top,
+    rgba(24, 22, 22, 0.9),
+    transparent
+  );
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
@@ -218,9 +243,9 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 1px solid var(--g-border);
-  background: rgba(28, 30, 34, 0.85);
-  color: var(--g-heading);
+  border: 1px solid var(--g-border-gold);
+  background: hsla(240, 2%, 16%, 0.75);
+  color: var(--g-accent);
   font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
@@ -228,12 +253,13 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(10px);
-  transition: background 0.3s ease, border-color 0.3s ease,
-              transform 0.2s ease, opacity 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease,
+              border-color 0.3s ease, transform 0.2s ease;
 }
 
 .strip-arrow:hover {
   background: var(--g-hover-bg);
+  color: var(--g-hover-text);
   border-color: var(--g-accent);
   transform: translateY(-50%) scale(1.06);
 }
@@ -255,7 +281,7 @@
   align-items: center;
   justify-content: center;
   padding: clamp(1rem, 4vw, 3rem);
-  background: rgba(10, 11, 13, 0.95);
+  background: rgba(10, 9, 9, 0.96);
   backdrop-filter: blur(6px);
   animation: gallery-fade 0.25s ease;
 }
@@ -280,15 +306,16 @@
   max-height: 78vh;
   object-fit: contain;
   border-radius: 8px;
-  border: 1px solid var(--g-border);
+  border: 1px solid var(--g-border-gold);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
 }
 
 .lightbox-caption {
-  font-family: "Inter", system-ui, sans-serif;
-  font-size: 0.9rem;
-  color: var(--g-body);
-  letter-spacing: 0.02em;
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--g-border-gold);
+  letter-spacing: 0.01em;
 }
 
 .lightbox-close,
@@ -297,9 +324,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--g-border);
-  background: var(--g-card-bg);
-  color: var(--g-heading);
+  border: 1px solid var(--g-border-gold);
+  background: hsla(240, 2%, 16%, 0.75);
+  color: var(--g-accent);
   border-radius: 999px;
   cursor: pointer;
   backdrop-filter: blur(8px);
@@ -310,8 +337,8 @@
 .lightbox-close:hover,
 .lightbox-nav:hover {
   background: var(--g-hover-bg);
+  color: var(--g-hover-text);
   border-color: var(--g-accent);
-  color: #fff;
   transform: scale(1.05);
 }
 
@@ -355,6 +382,8 @@
     height: 44px;
     font-size: 1.5rem;
   }
+
+  .gallery { background-attachment: scroll; }
 }
 
 @media (max-width: 600px) {
@@ -363,14 +392,11 @@
     height: 60vh;
   }
 
-  /* Hide edge arrows on touch — native swipe is better */
   .strip-arrow { display: none; }
 
-  .gallery-strip {
-    padding: 1rem 1.25rem 1.5rem;
-    scroll-snap-type: x mandatory;
-  }
-
+ .gallery-strip {
+  padding: 1rem 1.25rem 1.5rem;
+}
   .lightbox-nav {
     width: 44px;
     height: 44px;

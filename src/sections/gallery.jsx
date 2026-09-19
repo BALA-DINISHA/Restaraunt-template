@@ -3,12 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import { galleryIntro } from "../data/restaurantData";
 import "../styles/gallery.css";
 
+const AUTO_SCROLL_SPEED = 0.6;      // px per frame (~36px/sec at 60fps)
+const AUTOPLAY_PAUSE_ON_HOVER = true;
+
 export default function Gallery() {
   const { label, headingTop, headingBottom, subtitle, images } = galleryIntro;
 
   const [lightboxIndex, setLightboxIndex] = useState(null);
+
   const stripRef = useRef(null);
   const dragState = useRef({ isDown: false, startX: 0, scrollLeft: 0, moved: false });
+  const autoScrollRef = useRef({ raf: 0, dir: 1, paused: false });
 
   const isOpen = lightboxIndex !== null;
   const active = isOpen ? images[lightboxIndex] : null;
@@ -34,6 +39,52 @@ export default function Gallery() {
       document.body.style.overflow = prev;
     };
   }, [isOpen, images.length]);
+
+  /* ---------- Auto-scroll loop (ping-pong, pauses on hover) ---------- */
+  useEffect(() => {
+    const el = stripRef.current;
+    if (!el) return;
+
+    const prefersReduced =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    if (prefersReduced) return;
+
+    const state = autoScrollRef.current;
+
+    const tick = () => {
+      const shouldPause =
+        state.paused ||
+        dragState.current.isDown ||
+        document.hidden ||
+        isOpen;
+
+      if (!shouldPause) {
+        el.scrollLeft += AUTO_SCROLL_SPEED * state.dir;
+
+        const max = el.scrollWidth - el.clientWidth;
+        if (el.scrollLeft >= max - 1) {
+          state.dir = -1;
+        } else if (el.scrollLeft <= 1 && state.dir === -1) {
+          state.dir = 1;
+        }
+      }
+
+      state.raf = requestAnimationFrame(tick);
+    };
+
+    state.raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(state.raf);
+  }, [isOpen]);
+
+  /* ---------- Pause on hover ---------- */
+  const handleMouseEnter = () => {
+    if (!AUTOPLAY_PAUSE_ON_HOVER) return;
+    autoScrollRef.current.paused = true;
+  };
+  const handleMouseLeave = () => {
+    if (!AUTOPLAY_PAUSE_ON_HOVER) return;
+    autoScrollRef.current.paused = false;
+  };
 
   /* ---------- Drag-to-scroll (desktop) ---------- */
   const onPointerDown = (e) => {
@@ -69,15 +120,19 @@ export default function Gallery() {
   const scrollByCard = (dir) => {
     const el = stripRef.current;
     if (!el) return;
+    autoScrollRef.current.paused = true;
     const card = el.querySelector(".strip-item");
     const gap = 16;
     const amount = card ? card.offsetWidth + gap : el.clientWidth * 0.8;
     el.scrollBy({ left: dir * amount, behavior: "smooth" });
+    window.setTimeout(() => {
+      autoScrollRef.current.paused = false;
+    }, 700);
   };
 
   /* ---------- Prevent click after drag ---------- */
   const handleCardClick = (i) => {
-    if (dragState.current.moved) return; // user was dragging, not clicking
+    if (dragState.current.moved) return;
     setLightboxIndex(i);
   };
 
@@ -97,8 +152,12 @@ export default function Gallery() {
         {subtitle && <p className="gallery-subtitle">{subtitle}</p>}
       </header>
 
-      {/* ---------- Strip wrapper (with edge arrows) ---------- */}
-      <div className="gallery-strip-wrap">
+      {/* ---------- Strip wrapper ---------- */}
+      <div
+        className="gallery-strip-wrap"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <button
           type="button"
           className="strip-arrow strip-arrow--prev"

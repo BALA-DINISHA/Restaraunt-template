@@ -3,7 +3,7 @@ import { useState,useEffect } from "react";
 function Navbar(props){
 
     const [menuOpen,setMenuOpen]=useState(false)
-    const navItems = ["Home", "About", "Menu", "Gallery","Events","Contact"];
+    const navItems = ["Home", "About", "Menu", "Gallery","Contact"];
     const [scrolled,setScrolled]=useState(false)
     const [showNavbar,setNavbar]=useState(true)
     const [isScrollingDown,setScrollingDown]=useState(false);
