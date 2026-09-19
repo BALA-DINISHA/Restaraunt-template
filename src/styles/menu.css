@@ -1,332 +1,305 @@
 /* =========================================================
-   MENU — Premium Editorial Dark Theme
+   MENU — Signature Foods Slider
+   Dark Editorial + Coral Accent
    ========================================================= */
 
 .menu {
-  --menu-bg-cement: #0f0e0c;
-  --menu-card-bg: #141210;
-  --menu-border-gold: #E07A5F;
-  --menu-border-subtle: rgba(224, 122, 95, 0.25);
-  --menu-accent-primary: #E07A5F;
-  --menu-text-heading: #FAF8F5;
-  --menu-text-body: #C4BCAE;
-  --menu-text-muted: #8A8275;
-  --menu-bg-image: url('https://img.magnific.com/free-photo/top-view-bowl-with-lentils-variety-condiments_1220-423.jpg?semt=ais_hybrid&w=740&q=80');
-  --menu-overlay: linear-gradient(180deg, rgba(15, 14, 12, 0.9) 0%, rgba(15, 14, 12, 0.97) 100%);
-}
+  /* 🎨 PALETTE */
+  --card-bg: hsla(240, 2%, 16%, 0.658);
+  --border-gold: #C87D55;
+  --accent-primary: #E07A5F;
+  --text-heading: #F4F1DE;
+  --text-body: #bdb6ac;
+  --button-hover-bg: #E07A5F;
+  --button-hover-text: #181616;
 
-.menu {
+  /* 🖼️ BACKGROUND IMAGE + OVERLAY */
+  --menu-bg-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80');
+  --menu-overlay: linear-gradient(
+    rgba(18, 17, 22, 0.9),
+    rgba(18, 17, 22, 0.95)
+  );
+
   position: relative;
   background-image: var(--menu-overlay), var(--menu-bg-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: var(--menu-bg-cement);
-  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem);
-  color: var(--menu-text-body);
+  background-color: #181616;
+
+  padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  color: var(--text-body);
+  overflow: hidden;
 }
 
-/* ---------- Header ---------- */
-.menu-header {
-  max-width: 760px;
-  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
-  text-align: center;
+/* =========================================================
+   LAYOUT — Two columns: copy | visual
+   ========================================================= */
+.menu-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ---------- LEFT ---------- */
+.menu-copy {
+  max-width: 460px;
 }
 
 .menu-label {
-  font-size: 0.8rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--menu-accent-primary);
-  margin-bottom: 0.5rem;
+  color: var(--accent-primary);
+  margin: 0 0 1.25rem;
 }
 
 .menu-heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 0.5rem;
+  line-height: 1.02;
+  margin: 0 0 1.5rem;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
 }
 
-.menu-heading-top { color: var(--menu-text-heading); }
-.menu-heading-bottom { color: var(--menu-accent-primary); }
-
-.menu-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem auto;
-  max-width: 200px;
+.menu-heading-accent {
+  color: var(--accent-primary);
+  font-style: italic;
 }
 
-.menu-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--menu-accent-primary), transparent);
+.menu-underline {
+  display: block;
+  width: 72px;
+  height: 2px;
+  background: var(--border-gold);
+  margin: 0 0 2rem;
 }
 
-.menu-diamond {
-  color: var(--menu-accent-primary);
-  font-size: 0.7rem;
+/* ---------- Active dish text (re-animates on change) ---------- */
+.menu-dish-text {
+  animation: menu-fade-up 0.55s ease both;
 }
 
-/* ---------- Carousel & Controls ---------- */
-.menu-carousel-wrapper {
+@keyframes menu-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.menu-dish-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0 0 0.6rem;
+}
+
+.menu-dish-desc {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin: 0 0 1.75rem;
+  max-width: 42ch;
+}
+
+.menu-tagline {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--border-gold);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* =========================================================
+   RIGHT — Visual
+   ========================================================= */
+.menu-visual {
   position: relative;
-  max-width: 680px;
-  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  max-width: 560px;
+  width: 100%;
+  margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 3.5rem;
 }
 
-.carousel-arrow {
+/* Geometric rings behind the image */
+.menu-ring {
+  position: absolute;
+  border: 1px solid rgba(200, 125, 85, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.menu-ring--outer {
+  width: 105%;
+  height: 105%;
+}
+
+.menu-ring--inner {
+  width: 82%;
+  height: 82%;
+  border-color: rgba(200, 125, 85, 0.2);
+}
+
+/* Image frame */
+.menu-image-frame {
+  position: relative;
+  width: 78%;
+  height: 78%;
+  border-radius: 50% / 42%;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  background: #111;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+.menu-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.7s ease, transform 1.4s ease;
+  filter: brightness(0.95) saturate(1.05);
+}
+
+.menu-image.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- Arrows ---------- */
+.menu-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #181614;
-  border: 1.5px solid var(--menu-border-gold);
-  color: var(--menu-accent-primary);
-  font-size: 2.2rem;
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  line-height: 1;
   cursor: pointer;
-  z-index: 10;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 0;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  z-index: 3;
 }
 
-.carousel-arrow:hover {
-  background: var(--menu-accent-primary);
-  color: #0f0e0c;
-  box-shadow: 0 0 18px rgba(224, 122, 95, 0.4);
+.menu-arrow:hover {
+  background: var(--button-hover-bg);
+  color: var(--button-hover-text);
+  transform: translateY(-50%) scale(1.08);
 }
 
-.arrow-left { left: 0; }
-.arrow-right { right: 0; }
-
-/* ---------- Single Card Display ---------- */
-.single-card-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Allows natural height expansion */
+.menu-arrow:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
 }
+
+.menu-arrow--prev { left: -8px; }
+.menu-arrow--next { right: -8px; }
+
 /* =========================================================
-   GLASSMORPHISM & INTERACTIVE CARD STYLES
+   DOTS
    ========================================================= */
-
-.menu-card {
-  position: relative;
-  width: 100%;
-  
-  /* Remove fixed height constraints */
-  height: auto; 
-  min-height: fit-content;
-  
-  /* Glassmorphism styling */
-  background: rgba(22, 20, 18, 0.55);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  
-  /* Thick border & glass edges */
-  border: 2px solid rgba(224, 122, 95, 0.4);
-  outline: 1px solid rgba(224, 122, 95, 0.2);
-  outline-offset: -8px;
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  
-  /* Smooth size transitions when switching tabs */
-  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  user-select: none;
-}
-/* Hover Effect: Soft Lift & Shimmer */
-.menu-card:hover {
-  background: rgba(28, 25, 22, 0.65);
-  border-color: rgba(224, 122, 95, 0.7);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
-              0 0 25px rgba(224, 122, 95, 0.15),
-              inset 0 1px 2px rgba(255, 255, 255, 0.2);
-  transform: translateY(-4px);
-}
-
-/* Click/Active State: Tactile Press Down Effect */
-.menu-card:active {
-  transform: translateY(2px) scale(0.985);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7),
-              inset 0 0 15px rgba(0, 0, 0, 0.5);
-  border-color: var(--menu-accent-primary);
-  transition: transform 0.08s ease;
-}
-
-/* Inner Glass Highlight Gradient */
-.menu-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(
-    180deg, 
-    rgba(255, 255, 255, 0.05) 0%, 
-    transparent 100%
-  );
-  border-radius: 14px 14px 0 0;
-  pointer-events: none;
-}
-@keyframes fadeIn {
-  from { opacity: 0.5; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.card-category-title {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 2.2rem;
-  letter-spacing: 0.05em;
-  color: var(--menu-text-heading);
-  text-align: center;
-  margin: 0;
-}
-
-.card-category-subtitle {
-  text-align: center;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--menu-accent-primary);
-  margin-bottom: 2rem;
-}
-
-/* ---------- Item List Styling ---------- */
-.menu-list-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Click/Active press effect */
-.menu-card:active {
-  transform: scale(0.985);
-  transition: transform 0.08s ease;
-}
-.menu-list-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.item-main {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.item-name {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--menu-text-heading);
-}
-
-/* Refined Dot Leaders */
-.item-dots {
-  flex: 1;
-  height: 1px;
-  border-bottom: 1px dotted var(--menu-text-muted);
-  opacity: 0.4;
-  margin: 0 0.75rem;
-}
-
-.item-price {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--menu-accent-primary);
-}
-
-.item-desc {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: var(--menu-text-body);
-  margin: 0.25rem 0 0 0;
-}
-
-/* ---------- Circular Image Frame ---------- */
-.card-media-block {
+.menu-dots {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 2rem 0;
+  gap: 0.6rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
-.image-frame-circle {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  padding: 5px;
-  background: linear-gradient(135deg, var(--menu-border-gold), transparent);
-  border: 1px solid var(--menu-border-gold);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-.image-frame-circle img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ---------- Carousel Dots ---------- */
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 2rem;
-}
-
-.dot {
+.menu-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--menu-text-muted);
+  border: 1px solid var(--border-gold);
+  background: transparent;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease,
+              transform 0.3s ease;
 }
 
-.dot.active {
-  background: var(--menu-accent-primary);
-  width: 24px;
-  border-radius: 12px;
+.menu-dot:hover { border-color: var(--accent-primary); }
+
+.menu-dot.is-active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: scale(1.4);
 }
 
-/* ---------- Mobile Layout ---------- */
+.menu-dot:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .menu-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .menu-copy {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .menu-underline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .menu-visual {
+    margin: 0 auto;
+    max-width: 420px;
+  }
+
+  .menu-arrow--prev { left: 0; }
+  .menu-arrow--next { right: 0; }
+}
+
 @media (max-width: 600px) {
+  .menu-heading { font-size: 2.5rem; }
+  .menu-visual { max-width: 320px; }
 
-    .menu-carousel-wrapper {
-    padding: 0 2rem;
+  .menu-image-frame {
+    width: 82%;
+    height: 82%;
   }
-  .carousel-arrow {
-    width: 38px;
-    height: 38px;
-    font-size: 1.8rem;
+
+  .menu-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
   }
-  .arrow-left { left: -5px; }
-  .arrow-right { right: -5px; }
-  .menu-card { padding: 2rem 1.25rem; outline-offset: -5px; }
-  .image-frame-circle { width: 140px; height: 140px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .menu-dish-text,
+  .menu-image {
+    animation: none !important;
+    transition: none !important;
+  }
 }

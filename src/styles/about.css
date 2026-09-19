@@ -27,7 +27,7 @@
     rgba(0, 0, 0, 0.7),
     rgba(5, 5, 5, 0.25),
     rgba(0, 0, 0, 0.658)),
-    url("../assets/about-section-background.png") center/cover no-repeat fixed;
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD9Udkbz1grvvsWtjUBgPL8yIagZ6JHQojeSaVDYp77Q&s=10") center/cover no-repeat fixed;
 }
 
 .about-container {
@@ -40,6 +40,7 @@
 }
 
 .about-card {
+
   display: flex;
   align-items: center;
   gap: clamp(2rem, 4vw, 4rem);
@@ -51,6 +52,7 @@
   border-radius:  35px 35px 35px 35px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.445);
   text-align: left;
+  
 }
 
 /* --- STATIC IMAGE STYLING (Animations Removed) --- */

@@ -168,3 +168,62 @@ export const menuIntro = {
     },
   ],
 };
+// src/data/restaurantData.js  
+
+export const galleryIntro = {
+  label: "Gallery",
+  headingTop: "A Glimpse",
+  headingBottom: "Inside",
+  subtitle:
+    "Step inside our world — warm lighting, crafted plates, and moments worth savouring.",
+  images: [
+    {
+      id: "g1",
+      src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+      alt: "Warm restaurant interior with ambient lighting",
+      caption: "The main dining hall",
+    },
+    {
+      id: "g2",
+      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+      alt: "Chef plating a signature dish",
+      caption: "Signature plating",
+    },
+    {
+      id: "g3",
+      src: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80",
+      alt: "Friends toasting over dinner",
+      caption: "Evenings together",
+    },
+    {
+      id: "g4",
+      src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
+      alt: "Cozy corner seating area",
+      caption: "Corner booth",
+    },
+    {
+      id: "g5",
+      src: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80",
+      alt: "Fresh salad bowl close-up",
+      caption: "Garden bowl",
+    },
+    {
+      id: "g6",
+      src: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80",
+      alt: "Candlelit table setting",
+      caption: "Candlelit nights",
+    },
+    {
+      id: "g7",
+      src: "https://images.unsplash.com/photo-1592861956120-e524fc739696?auto=format&fit=crop&w=1200&q=80",
+      alt: "Bar counter with bottles",
+      caption: "The bar",
+    },
+    {
+      id: "g8",
+      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+      alt: "Grilled steak plated dish",
+      caption: "Fire-grilled cuts",
+    },
+  ],
+};
