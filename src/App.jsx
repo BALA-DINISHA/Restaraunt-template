@@ -6,6 +6,7 @@ import "./App.css";
 import { aboutContent } from "./data/restaurantData";
 import Menu from "./sections/menu";
 import Gallery from "./sections/gallery";
+import Contact from "./sections/contact";
 function App() {
 
 
@@ -16,6 +17,7 @@ function App() {
        <About {...aboutContent} />
        <Menu />
       <Gallery />
+      <Contact />
     </>
   );
 }

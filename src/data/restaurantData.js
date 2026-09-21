@@ -227,3 +227,70 @@ export const galleryIntro = {
     },
   ],
 };
+// src/data/restaurantData.js
+
+export const contactIntro = {
+  label: "Get in Touch",
+  headingTop: "Visit",
+  headingBottom: "Us",
+  subtitle:
+    "Reserve a table, ask about private dining, or just drop in — we'd love to hear from you.",
+
+  /* ── Contact details (left column) ── */
+  details: [
+    {
+      id: "address",
+      icon: "◆",
+      label: "Address",
+      lines: ["12 Marine Drive", "Fort Kochi, Kerala 682001"],
+      href: "https://maps.google.com/?q=Fort+Kochi",
+    },
+    {
+      id: "hours",
+      icon: "◆",
+      label: "Hours",
+      lines: ["Mon–Thu · 12:00 – 23:00", "Fri–Sun · 11:00 – 00:30"],
+    },
+    {
+      id: "phone",
+      icon: "◆",
+      label: "Reservations",
+      lines: ["+91 98765 43210"],
+      href: "tel:+919876543210",
+    },
+    {
+      id: "email",
+      icon: "◆",
+      label: "Email",
+      lines: ["hello@restaurant.com"],
+      href: "mailto:hello@restaurant.com",
+    },
+  ],
+
+  /* ── Social links ── */
+  socials: [
+    { id: "ig", label: "Instagram", href: "https://instagram.com" },
+    { id: "fb", label: "Facebook",  href: "https://facebook.com" },
+    { id: "tw", label: "Twitter",   href: "https://twitter.com" },
+  ],
+
+  /* ── Form ── */
+  form: {
+    title: "Send a Message",
+    fields: [
+      { name: "name",    label: "Full Name",     type: "text",  placeholder: "Jane Doe",       required: true },
+      { name: "email",   label: "Email",         type: "email", placeholder: "jane@example.com", required: true },
+      { name: "phone",   label: "Phone",         type: "tel",   placeholder: "+91 98765 43210", required: false },
+      { name: "subject", label: "Subject",       type: "text",  placeholder: "Table for two",   required: false },
+    ],
+    messageLabel: "Message",
+    messagePlaceholder: "Tell us a little about your plans…",
+    submitLabel: "Send Message",
+    successMessage: "Thanks — we'll get back to you shortly.",
+    errorMessage: "Something went wrong. Please try again.",
+  },
+
+  /* ── Background image for the section ── */
+  bgImage:
+    "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1920&q=80",
+};
