@@ -21,7 +21,7 @@ export const aboutContent = {
     "src/assets/images/spice-3.jpg",
     "src/assets/images/spice-4.jpg",
   ],
-  mainImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc1b0GoB0ew9zvJIDr0d1lBaNEvb3Pg_fMdi6hU3LqAw&s=10"
+  mainImage:"https://img.magnific.com/free-photo/restaurant-interior_1127-3392.jpg?semt=ais_hybrid&w=740&q=80"
 };
 
 // src/data/restaurantData.js
@@ -229,68 +229,72 @@ export const galleryIntro = {
 };
 // src/data/restaurantData.js
 
+// src/data/restaurantData.js
+
 export const contactIntro = {
   label: "Get in Touch",
   headingTop: "Visit",
   headingBottom: "Us",
   subtitle:
-    "Reserve a table, ask about private dining, or just drop in — we'd love to hear from you.",
+    "Find us on Marine Drive — walk-ins welcome, reservations recommended on weekends.",
 
-  /* ── Contact details (left column) ── */
-  details: [
-    {
-      id: "address",
-      icon: "◆",
-      label: "Address",
-      lines: ["12 Marine Drive", "Fort Kochi, Kerala 682001"],
-      href: "https://maps.google.com/?q=Fort+Kochi",
-    },
-    {
-      id: "hours",
-      icon: "◆",
-      label: "Hours",
-      lines: ["Mon–Thu · 12:00 – 23:00", "Fri–Sun · 11:00 – 00:30"],
-    },
-    {
-      id: "phone",
-      icon: "◆",
-      label: "Reservations",
-      lines: ["+91 98765 43210"],
-      href: "tel:+919876543210",
-    },
-    {
-      id: "email",
-      icon: "◆",
-      label: "Email",
-      lines: ["hello@restaurant.com"],
-      href: "mailto:hello@restaurant.com",
-    },
-  ],
+  /* ── Left: Google Map ── */
+  map: {
+    // Paste your Google Maps embed URL (Share → Embed a map → copy src)
+    embedSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.309!2d76.2673!3d9.9312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sFort%20Kochi!5e0!3m2!1sen!2sin!4v1700000000000",
+    directionsHref: "https://maps.google.com/?q=Fort+Kochi",
+  },
 
-  /* ── Social links ── */
-  socials: [
-    { id: "ig", label: "Instagram", href: "https://instagram.com" },
-    { id: "fb", label: "Facebook",  href: "https://facebook.com" },
-    { id: "tw", label: "Twitter",   href: "https://twitter.com" },
-  ],
-
-  /* ── Form ── */
+  /* ── Right: contact form ── */
   form: {
-    title: "Send a Message",
-    fields: [
-      { name: "name",    label: "Full Name",     type: "text",  placeholder: "Jane Doe",       required: true },
-      { name: "email",   label: "Email",         type: "email", placeholder: "jane@example.com", required: true },
-      { name: "phone",   label: "Phone",         type: "tel",   placeholder: "+91 98765 43210", required: false },
-      { name: "subject", label: "Subject",       type: "text",  placeholder: "Table for two",   required: false },
-    ],
-    messageLabel: "Message",
-    messagePlaceholder: "Tell us a little about your plans…",
-    submitLabel: "Send Message",
-    successMessage: "Thanks — we'll get back to you shortly.",
-    errorMessage: "Something went wrong. Please try again.",
+    label: "Reservations",
+    title: "Book a Table",
+    subtitle: "We'll confirm by email within an hour.",
+    ctaLabel: "Send Message",
   },
 
   /* ── Background image for the section ── */
   bgImage:
     "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1920&q=80",
+};
+
+// src/data/restaurantData.js
+
+export const footerContent = {
+  brand: {
+    name: "Aroma",
+    tagline: "Fine dining experience since 2010.",
+  },
+
+  quickLinks: [
+    { label: "Home",    href: "#home" },
+    { label: "About",   href: "#about" },
+    { label: "Menu",    href: "#menu" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "Contact", href: "#contact" },
+  ],
+
+  contact: {
+    heading: "Contact",
+    address: ["123 Main Street", "Chennai, Tamil Nadu 600001"],
+    phone: { label: "+91 98765 43210", href: "tel:+919876543210" },
+    email: { label: "hello@aroma.com", href: "mailto:hello@aroma.com" },
+  },
+
+  hours: {
+    heading: "Hours",
+    groups: [
+      { label: "Mon – Fri", time: "11:00 AM – 10:00 PM" },
+      { label: "Sat – Sun", time: "10:00 AM – 11:00 PM" },
+    ],
+  },
+
+  socialLinks: [
+    { label: "Instagram", href: "https://instagram.com/aroma" },
+    { label: "Facebook",  href: "https://facebook.com/aroma" },
+    { label: "Twitter",   href: "https://twitter.com/aroma" },
+  ],
+
+  copyright: "© 2025 Aroma Restaurant. All rights reserved.",
 };

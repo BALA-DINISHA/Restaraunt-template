@@ -191,6 +191,25 @@
   background: #111;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
 }
+.menu-image-click {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+}
+
+.menu-image-click--left {
+  left: 0;
+}
+
+.menu-image-click--right {
+  right: 0;
+}
 
 .menu-image {
   position: absolute;
@@ -200,7 +219,7 @@
   object-fit: cover;
   opacity: 0;
   transform: scale(1.05);
-  transition: opacity 0.7s ease, transform 1.4s ease;
+  transition: opacity 1.5s ease, transform 1.4s ease;
   filter: brightness(0.95) saturate(1.05);
 }
 

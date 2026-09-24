@@ -1,0 +1,231 @@
+/* =========================================================
+   FOOTER — Multi-column editorial
+   ========================================================= */
+
+.footer {
+  background: #0a0909;                       /* charcoal */
+  color: #b8b0a4;
+  padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2rem);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- 4-column grid ---------- */
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.3fr 1.2fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border-bottom: 1px solid rgba(200, 125, 85, 0.2);
+}
+
+/* ---------- Column shared ---------- */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-heading {
+  
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #f4f1de;
+  margin: 0 0 1.25rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+/* Thin orange underline under each heading */
+.footer-col-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 2px;
+  background: #e07a5f;
+}
+
+/* ---------- Column 1: Brand ---------- */
+.footer-brand-name {
+
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f4f1de;
+  margin: 0 0 0.75rem;
+  line-height: 1;
+}
+
+.footer-brand-tagline {
+
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #b8b0a4;
+  margin: 0;
+  max-width: 28ch;
+}
+
+/* ---------- Lists (Quick Links + Hours) ---------- */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-link {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #b8b0a4;
+  text-decoration: none;
+  transition: color 0.25s ease, padding-left 0.25s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #e07a5f;
+  padding-left: 4px;
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid #e07a5f;
+  outline-offset: 3px;
+}
+
+/* ---------- Column 3: Address ---------- */
+.footer-address {
+  font-style: normal;                       /* reset browser italic on <address> */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #b8b0a4;
+}
+
+.footer-address-line {
+  display: block;
+}
+
+.footer-address .footer-link {
+  margin-top: 0.25rem;
+}
+
+/* ---------- Column 4: Hours ---------- */
+.footer-hour {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-hour-label {
+  color: #b8b0a4;
+}
+
+.footer-hour-time {
+  color: #f4f1de;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ---------- Social row ---------- */
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: clamp(1.5rem, 3vw, 2rem) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-social-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-social-link {
+
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b8b0a4;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-social-link:hover {
+  color: #e07a5f;
+}
+
+.footer-social-link:focus-visible {
+  outline: 2px solid #e07a5f;
+  outline-offset: 3px;
+}
+
+.footer-social-dot {
+  color: #5a544b;
+  font-size: 1.1rem;
+}
+
+/* ---------- Bottom copyright ---------- */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #7a7367;
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .footer-brand-tagline {
+    max-width: 100%;
+  }
+
+  .footer-social {
+    gap: 0.5rem 0.75rem;
+  }
+
+  .footer-social-link {
+    letter-spacing: 0.15em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-link,
+  .footer-social-link {
+    transition: none;
+  }
+}

@@ -7,6 +7,7 @@ import { aboutContent } from "./data/restaurantData";
 import Menu from "./sections/menu";
 import Gallery from "./sections/gallery";
 import Contact from "./sections/contact";
+import Footer from "./components/footer";
 function App() {
 
 
@@ -18,6 +19,7 @@ function App() {
        <Menu />
       <Gallery />
       <Contact />
+      <Footer/>
     </>
   );
 }

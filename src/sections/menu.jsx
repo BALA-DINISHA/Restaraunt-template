@@ -12,7 +12,7 @@ const signatureDishes = [
     image:
       "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
     bgImage:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
     alt: "Truffle risotto plated on ceramic",
   },
   {
@@ -24,7 +24,7 @@ const signatureDishes = [
     image:
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
     bgImage:
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
     alt: "Grilled salmon fillet with herbs",
   },
   {
@@ -36,7 +36,7 @@ const signatureDishes = [
     image:
       "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
     bgImage:
-      "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
     alt: "Braised lamb shank on plate",
   },
   {
@@ -48,7 +48,7 @@ const signatureDishes = [
     image:
       "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80",
     bgImage:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80",
     alt: "Saffron pasta with prawns",
   },
 ];
@@ -62,20 +62,9 @@ export default function Menu() {
   const active = signatureDishes[activeIndex];
 
   /* ---------- Cross-fading background state ---------- */
-  const [bg, setBg] = useState({
-    front: signatureDishes[0].bgImage,
-    back: null,
-    flip: false,
-  });
+  
 
-  useEffect(() => {
-    const next = active.bgImage;
-    setBg((prev) => {
-      if (prev.front === next) return prev;
-      return { front: next, back: prev.front, flip: !prev.flip };
-    });
-  }, [active.bgImage]);
-
+ 
   /* ---------- Navigation ---------- */
   const goTo = (i) =>
     setActiveIndex(
@@ -116,18 +105,11 @@ export default function Menu() {
   return (
     <section className="menu" id="menu" aria-labelledby="menu-heading">
       {/* ---------- Cross-fading background layers ---------- */}
-      <div
-        className={`menu-bg-layer ${bg.flip ? "is-front" : ""}`}
-        style={{ backgroundImage: `url('${bg.front}')` }}
-        aria-hidden="true"
-      />
-      {bg.back && (
-        <div
-          className={`menu-bg-layer ${bg.flip ? "" : "is-front"}`}
-          style={{ backgroundImage: `url('${bg.back}')` }}
-          aria-hidden="true"
-        />
-      )}
+     <div
+  className="menu-bg-layer is-front"
+  style={{ backgroundImage: `url('${active.bgImage}')` }}
+  aria-hidden="true"
+/>
       <div className="menu-bg-overlay" aria-hidden="true" />
 
       <div
@@ -160,7 +142,7 @@ export default function Menu() {
           <span className="menu-ring menu-ring--outer" aria-hidden="true" />
           <span className="menu-ring menu-ring--inner" aria-hidden="true" />
 
-          <div className="menu-image-frame">
+          {/* <div className="menu-image-frame">
             {signatureDishes.map((dish, i) => (
               <img
                 key={dish.id}
@@ -172,7 +154,34 @@ export default function Menu() {
                 }`}
               />
             ))}
-          </div>
+          </div> */}
+          <div className="menu-image-frame">
+  <button
+    type="button"
+    className="menu-image-click menu-image-click--left"
+    onClick={goPrev}
+    aria-label="Previous dish"
+  />
+
+  <button
+    type="button"
+    className="menu-image-click menu-image-click--right"
+    onClick={goNext}
+    aria-label="Next dish"
+  />
+
+  {signatureDishes.map((dish, i) => (
+    <img
+      key={dish.id}
+      src={dish.image}
+      alt={dish.alt}
+      loading={i === 0 ? "eager" : "lazy"}
+      className={`menu-image ${
+        i === activeIndex ? "is-active" : ""
+      }`}
+    />
+  ))}
+</div>
 
           <button
             type="button"
