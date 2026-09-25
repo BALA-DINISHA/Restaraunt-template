@@ -10,11 +10,6 @@ export const aboutContent = {
     "From comforting classics to flavorful specialties, every dish is thoughtfully prepared with passion and attention to detail. Whether you are enjoying a meal with family, celebrating a special moment, or simply discovering something new, AROMA is a place where good food and warm hospitality come together."
   ],
 
-  cta: {
-    label: "Explore Our Menu",
-    href: "#menu",
-  },
-
   decorationImages:[
     
     "src/assets/images/spice-2.jpg",

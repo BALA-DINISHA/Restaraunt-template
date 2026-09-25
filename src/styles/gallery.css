@@ -200,7 +200,7 @@ height: clamp(280px, 42vh, 440px);
 }
 
 .strip-caption-index {
-  font-family: "Inter", system-ui, sans-serif;
+ 
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.25em;
@@ -208,10 +208,10 @@ height: clamp(280px, 42vh, 440px);
 }
 
 .strip-caption {
-  font-family: "Playfair Display", Georgia, serif;
+
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   font-weight: 600;
-  color: var(--g-text-heading);
+  color: white;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
@@ -223,7 +223,7 @@ height: clamp(280px, 42vh, 440px);
   height: 50%;
   background: linear-gradient(
     to top,
-    rgba(24, 22, 22, 0.9),
+    rgba(24, 22, 22, 0.2),
     transparent
   );
   opacity: 0;

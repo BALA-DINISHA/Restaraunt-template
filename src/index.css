@@ -6,11 +6,12 @@
 }
 html
 {
-  scrollbar-width: smooth;
+  scroll-behavior: smooth;
 }
 body
 {
   margin: 0;
   min-width: 320px;
+  background: #181616;
   font-family: Arial,sans-serif;
 }
