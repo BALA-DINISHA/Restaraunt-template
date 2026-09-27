@@ -1,57 +1,8 @@
 // src/sections/Menu.jsx
 import { useEffect, useState } from "react";
 import "../styles/menu.css";
+import { signatureDishes } from "../data/restaurantData";
 
-const signatureDishes = [
-  {
-    id: "d1",
-    name: "Truffle Risotto",
-    tagline: "Creamy Arborio, black truffle, aged parmesan.",
-    description:
-      "Slow-stirred Italian rice finished with truffle oil and shaved parmesan — a warm, earthy indulgence.",
-    image:
-      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
-    bgImage:
-      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
-    alt: "Truffle risotto plated on ceramic",
-  },
-  {
-    id: "d2",
-    name: "Grilled Salmon",
-    tagline: "Charred citrus glaze, herb butter, greens.",
-    description:
-      "Wild-caught salmon seared over open flame, brushed with citrus glaze and served with seasonal greens.",
-    image:
-      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
-    bgImage:
-      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
-    alt: "Grilled salmon fillet with herbs",
-  },
-  {
-    id: "d3",
-    name: "Lamb Shank",
-    tagline: "Slow-braised, red wine jus, root vegetables.",
-    description:
-      "Tender lamb braised for hours in red wine and herbs, falling off the bone with a rich reduction.",
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
-    bgImage:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
-    alt: "Braised lamb shank on plate",
-  },
-  {
-    id: "d4",
-    name: "Saffron Pasta",
-    tagline: "Handmade tagliatelle, saffron cream, prawns.",
-    description:
-      "Silky handmade pasta tossed in a saffron-infused cream sauce with plump tiger prawns and fresh basil.",
-    image:
-      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80",
-    bgImage:
-      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80",
-    alt: "Saffron pasta with prawns",
-  },
-];
 
 const AUTOPLAY_MS = 5000;
 

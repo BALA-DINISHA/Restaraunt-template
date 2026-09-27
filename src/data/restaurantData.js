@@ -20,7 +20,56 @@ export const aboutContent = {
 };
 
 // src/data/restaurantData.js
-
+export const signatureDishes = [
+  {
+    id: "d1",
+    name: "Truffle Risotto",
+    tagline: "Creamy Arborio, black truffle, aged parmesan.",
+    description:
+      "Slow-stirred Italian rice finished with truffle oil and shaved parmesan — a warm, earthy indulgence.",
+    image:
+      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
+    bgImage:
+      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1200&q=80",
+    alt: "Truffle risotto plated on ceramic",
+  },
+  {
+    id: "d2",
+    name: "Grilled Salmon",
+    tagline: "Charred citrus glaze, herb butter, greens.",
+    description:
+      "Wild-caught salmon seared over open flame, brushed with citrus glaze and served with seasonal greens.",
+    image:
+      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
+    bgImage:
+      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
+    alt: "Grilled salmon fillet with herbs",
+  },
+  {
+    id: "d3",
+    name: "Lamb Shank",
+    tagline: "Slow-braised, red wine jus, root vegetables.",
+    description:
+      "Tender lamb braised for hours in red wine and herbs, falling off the bone with a rich reduction.",
+    image:
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
+    bgImage:
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
+    alt: "Braised lamb shank on plate",
+  },
+  {
+    id: "d4",
+    name: "Saffron Pasta",
+    tagline: "Handmade tagliatelle, saffron cream, prawns.",
+    description:
+      "Silky handmade pasta tossed in a saffron-infused cream sauce with plump tiger prawns and fresh basil.",
+    image:
+      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80",
+    bgImage:
+      "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80",
+    alt: "Saffron pasta with prawns",
+  },
+];
 export const menuCategories = [
   "All",
   "Starters",
@@ -89,81 +138,81 @@ export const menuItems = [
 
 // src/data/restaurantData.js  (menu portion only)
 
-export const menuIntro = {
-  label: "Explore",
-  headingTop: "Our",
-  headingBottom: "Menu",
-  subtitle:
-    "From the famous South Indian idli sambar to indulgent faloodas and crispy vadais — discover a world of authentic flavors.",
-  tabs: [
-    {
-      id: "breakfast",
-      label: "Breakfast",
-      icon: "☕",              // ☕ or use a real icon library later
-      items: [
-        { name: "Idli Sambar",       description: "Steamed rice cakes with lentil soup" },
-        { name: "Masala Dosa",       description: "Crispy dosa with spiced potato filling" },
-        { name: "Upma",              description: "Warm semolina with vegetables" },
-        { name: "Pongal",            description: "Comforting rice and lentil dish" },
-        { name: "Vada",              description: "Crispy lentil fritters" },
-        { name: "Poori Masala",      description: "Fluffy bread with potato curry" },
-      ],
-    },
-    {
-      id: "lunch",
-      label: "Lunch",
-      icon: "🍽",
-      items: [
-        { name: "South Indian Meals", description: "Traditional thali with rice and curries" },
-        { name: "Curd Rice",          description: "Cooling rice with yogurt and tempering" },
-        { name: "Sambar Rice",        description: "Rice with lentil and tamarind" },
-        { name: "Rasam Rice",         description: "Peppery rice with tomato broth" },
-        { name: "Lemon Rice",         description: "Bright, tangy rice with peanuts" },
-        { name: "Bisi Bele Bath",     description: "Karnataka rice and lentil classic" },
-      ],
-    },
-    {
-      id: "snacks",
-      label: "Chaat & Snacks",
-      icon: "🥗",
-      items: [
-        { name: "Bhel Puri",       description: "Puffed rice with tangy chutneys" },
-        { name: "Pani Puri",       description: "Crisp shells with spiced water" },
-        { name: "Dahi Puri",       description: "Cool yogurt and sweet chutney" },
-        { name: "Samosa",          description: "Fried pastry with spiced potato" },
-        { name: "Vada Pav",        description: "Mumbai-style potato slider" },
-        { name: "Cut Mirchi",      description: "Spicy stuffed chilli fritters" },
-      ],
-    },
-    {
-      id: "dinner",
-      label: "Dinner",
-      icon: "🌙",
-      items: [
-        { name: "Veg Biryani",     description: "Fragrant rice with garden vegetables" },
-        { name: "Chicken Biryani", description: "Slow-cooked with heirloom spices" },
-        { name: "Paneer Butter Masala", description: "Creamy tomato-cashew gravy" },
-        { name: "Dal Tadka",       description: "Yellow lentils with garlic tempering" },
-        { name: "Butter Naan",     description: "Soft tandoor bread with butter" },
-        { name: "Raita",           description: "Cooling yogurt with cucumber" },
-      ],
-    },
-    {
-      id: "sweets",
-      label: "Sweets",
-      icon: "🍮",
-      items: [
-        { name: "Badam Halwa",     description: "Rich almond halwa" },
-        { name: "Pineapple Kesari", description: "Semolina sweet with pineapple" },
-        { name: "Gulab Jamun",     description: "Soft milk dumplings in syrup" },
-        { name: "Cashew Sweets",   description: "Assorted cashew delicacies" },
-        { name: "Mysore Pak",      description: "Traditional gram flour sweet" },
-        { name: "Jangiri",         description: "South Indian jalebi" },
-      ],
-    },
-  ],
-};
-// src/data/restaurantData.js  
+// export const menuIntro = {
+//   label: "Explore",
+//   headingTop: "Our",
+//   headingBottom: "Menu",
+//   subtitle:
+//     "From the famous South Indian idli sambar to indulgent faloodas and crispy vadais — discover a world of authentic flavors.",
+//   tabs: [
+//     {
+//       id: "breakfast",
+//       label: "Breakfast",
+//       icon: "☕",              // ☕ or use a real icon library later
+//       items: [
+//         { name: "Idli Sambar",       description: "Steamed rice cakes with lentil soup" },
+//         { name: "Masala Dosa",       description: "Crispy dosa with spiced potato filling" },
+//         { name: "Upma",              description: "Warm semolina with vegetables" },
+//         { name: "Pongal",            description: "Comforting rice and lentil dish" },
+//         { name: "Vada",              description: "Crispy lentil fritters" },
+//         { name: "Poori Masala",      description: "Fluffy bread with potato curry" },
+//       ],
+//     },
+//     {
+//       id: "lunch",
+//       label: "Lunch",
+//       icon: "🍽",
+//       items: [
+//         { name: "South Indian Meals", description: "Traditional thali with rice and curries" },
+//         { name: "Curd Rice",          description: "Cooling rice with yogurt and tempering" },
+//         { name: "Sambar Rice",        description: "Rice with lentil and tamarind" },
+//         { name: "Rasam Rice",         description: "Peppery rice with tomato broth" },
+//         { name: "Lemon Rice",         description: "Bright, tangy rice with peanuts" },
+//         { name: "Bisi Bele Bath",     description: "Karnataka rice and lentil classic" },
+//       ],
+//     },
+//     {
+//       id: "snacks",
+//       label: "Chaat & Snacks",
+//       icon: "🥗",
+//       items: [
+//         { name: "Bhel Puri",       description: "Puffed rice with tangy chutneys" },
+//         { name: "Pani Puri",       description: "Crisp shells with spiced water" },
+//         { name: "Dahi Puri",       description: "Cool yogurt and sweet chutney" },
+//         { name: "Samosa",          description: "Fried pastry with spiced potato" },
+//         { name: "Vada Pav",        description: "Mumbai-style potato slider" },
+//         { name: "Cut Mirchi",      description: "Spicy stuffed chilli fritters" },
+//       ],
+//     },
+//     {
+//       id: "dinner",
+//       label: "Dinner",
+//       icon: "🌙",
+//       items: [
+//         { name: "Veg Biryani",     description: "Fragrant rice with garden vegetables" },
+//         { name: "Chicken Biryani", description: "Slow-cooked with heirloom spices" },
+//         { name: "Paneer Butter Masala", description: "Creamy tomato-cashew gravy" },
+//         { name: "Dal Tadka",       description: "Yellow lentils with garlic tempering" },
+//         { name: "Butter Naan",     description: "Soft tandoor bread with butter" },
+//         { name: "Raita",           description: "Cooling yogurt with cucumber" },
+//       ],
+//     },
+//     {
+//       id: "sweets",
+//       label: "Sweets",
+//       icon: "🍮",
+//       items: [
+//         { name: "Badam Halwa",     description: "Rich almond halwa" },
+//         { name: "Pineapple Kesari", description: "Semolina sweet with pineapple" },
+//         { name: "Gulab Jamun",     description: "Soft milk dumplings in syrup" },
+//         { name: "Cashew Sweets",   description: "Assorted cashew delicacies" },
+//         { name: "Mysore Pak",      description: "Traditional gram flour sweet" },
+//         { name: "Jangiri",         description: "South Indian jalebi" },
+//       ],
+//     },
+//   ],
+// };
+// // src/data/restaurantData.js  
 
 export const galleryIntro = {
   label: "Gallery",
