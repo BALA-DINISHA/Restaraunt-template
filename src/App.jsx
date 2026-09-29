@@ -1,6 +1,6 @@
-// src/App.jsx
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { RestaurantProvider } from "./context/RestaurantContext";
 
 // Customer sections
 import Navbar from "./sections/Navbar";
@@ -11,18 +11,21 @@ import Gallery from "./sections/gallery";
 import Contact from "./sections/contact";
 import Footer from "./components/footer";
 
-// Data
-import { aboutContent } from "./data/restaurantData";
-
+// Admin
+import AdminLayout from "./admin/AdminLayout";
+import AdminDashboard from "./admin/AdminDashboard";
+import AdminHero from "./admin/AdminHero";
+import AdminAbout from "./admin/AdminAbout";
+import AdminSignature from "./admin/AdminSignature";
+import AdminGallery from "./admin/AdminGallery";
+import AdminContact from "./admin/AdminContact";
+import AdminFooter from "./admin/AdminFooter";
+import AdminProfile from "./admin/AdminProfile";
 import "./App.css";
 
-/* =====================================================
-   CUSTOMER SITE — your existing page, unchanged
-   ===================================================== */
 function CustomerSite() {
   useEffect(() => {
     const sections = document.querySelectorAll(".scroll-sections > section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -31,18 +34,16 @@ function CustomerSite() {
       },
       { threshold: 0.18 }
     );
-
     sections.forEach((section) => observer.observe(section));
-
     return () => observer.disconnect();
   }, []);
 
   return (
     <>
-      <Navbar restaurantName="AROMA" />
+      <Navbar/>
       <main className="scroll-sections">
         <Hero />
-        <About {...aboutContent} />
+        <About />
         <Menu />
         <Gallery />
         <Contact />
@@ -52,26 +53,25 @@ function CustomerSite() {
   );
 }
 
-/* =====================================================
-   ADMIN — placeholder (will be replaced in Step 4)
-   ===================================================== */
-function AdminPlaceholder() {
-  return (
-    <div style={{ padding: "4rem", fontFamily: "system-ui, sans-serif" }}>
-      <h1>Admin Dashboard</h1>
-      <p>Coming in Step 4. For now, this proves routing works. ✅</p>
-    </div>
-  );
-}
-
-/* =====================================================
-   ROUTES
-   ===================================================== */
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<CustomerSite />} />
-      <Route path="/admin" element={<AdminPlaceholder />} />
-    </Routes>
+    <RestaurantProvider>
+      <Routes>
+        {/* Customer site */}
+        <Route path="/" element={<CustomerSite />} />
+
+        {/* Admin — nested routes inside a shared layout */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="profile" element={<AdminProfile />} />
+          <Route path="hero" element={<AdminHero />} />
+          <Route path="about" element={<AdminAbout />} />
+          <Route path="signature" element={<AdminSignature />} />
+          <Route path="gallery" element={<AdminGallery />} />
+          <Route path="contact" element={<AdminContact />} />
+          <Route path="footer" element={<AdminFooter />} />
+        </Route>
+      </Routes>
+    </RestaurantProvider>
   );
 }

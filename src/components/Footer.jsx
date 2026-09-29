@@ -1,10 +1,10 @@
 // src/sections/Footer.jsx
-import { footerContent } from "../data/restaurantData";
+import { useRestaurant } from "../context/RestaurantContext";
 import "../styles/footer.css";
 
 export default function Footer() {
-  const { brand, quickLinks, contact, hours, socialLinks, copyright } = footerContent;
-
+  const { footer } = useRestaurant();
+  const { brand, quickLinks, contact, hours, socialLinks, copyright } = footer;
   return (
     <footer className="footer" id="footer">
       <div className="footer-inner">

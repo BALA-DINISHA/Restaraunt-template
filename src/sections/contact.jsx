@@ -1,10 +1,11 @@
 // src/sections/Contact.jsx
-import { contactIntro } from "../data/restaurantData";
+import { useRestaurant } from "../context/RestaurantContext";
 import ContactForm from "../components/ContactForm";
 import "../styles/contact.css";
 
 export default function Contact() {
-  const { label, headingTop, headingBottom, subtitle, map, bgImage } = contactIntro;
+  const { contact } = useRestaurant();
+  const { label, headingTop, headingBottom, subtitle, map, bgImage } = contact;
 
   return (
     <section

@@ -1,13 +1,14 @@
 // src/sections/Gallery.jsx
 import { useEffect, useRef, useState } from "react";
-import { galleryIntro } from "../data/restaurantData";
+import { useRestaurant } from "../context/RestaurantContext";
 import "../styles/gallery.css";
 
 const AUTO_SCROLL_SPEED = 0.6;      // px per frame (~36px/sec at 60fps)
 const AUTOPLAY_PAUSE_ON_HOVER = true;
 
 export default function Gallery() {
-  const { label, headingTop, headingBottom, subtitle, images } = galleryIntro;
+  const { gallery } = useRestaurant();
+  const { label, headingTop, headingBottom, subtitle, images } = gallery;
 
   const [lightboxIndex, setLightboxIndex] = useState(null);
 

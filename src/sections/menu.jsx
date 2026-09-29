@@ -1,21 +1,18 @@
-// src/sections/Menu.jsx
+// src/sections/Menu.jsx   (Signature carousel)
 import { useEffect, useState } from "react";
+import { useRestaurant } from "../context/RestaurantContext";
 import "../styles/menu.css";
-import { signatureDishes } from "../data/restaurantData";
-
 
 const AUTOPLAY_MS = 5000;
 
 export default function Menu() {
+  const { signature: signatureDishes } = useRestaurant();
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   const active = signatureDishes[activeIndex];
 
-  /* ---------- Cross-fading background state ---------- */
-  
-
- 
   /* ---------- Navigation ---------- */
   const goTo = (i) =>
     setActiveIndex(
@@ -33,7 +30,7 @@ export default function Menu() {
       goTo(activeIndex + 1);
     }, AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [activeIndex, isPaused]);
+  }, [activeIndex, isPaused, signatureDishes]);
 
   /* ---------- Keyboard nav ---------- */
   useEffect(() => {
@@ -45,22 +42,21 @@ export default function Menu() {
     return () => window.removeEventListener("keydown", onKey);
   }, [activeIndex]);
 
-  /* ---------- Preload all background images ---------- */
+  /* ---------- Preload background images ---------- */
   useEffect(() => {
     signatureDishes.forEach((d) => {
       const img = new Image();
       img.src = d.bgImage;
     });
-  }, []);
+  }, [signatureDishes]);
 
   return (
     <section className="menu" id="menu" aria-labelledby="menu-heading">
-      {/* ---------- Cross-fading background layers ---------- */}
-     <div
-  className="menu-bg-layer is-front"
-  style={{ backgroundImage: `url('${active.bgImage}')` }}
-  aria-hidden="true"
-/>
+      <div
+        className="menu-bg-layer is-front"
+        style={{ backgroundImage: `url('${active.bgImage}')` }}
+        aria-hidden="true"
+      />
       <div className="menu-bg-overlay" aria-hidden="true" />
 
       <div
@@ -68,7 +64,7 @@ export default function Menu() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* ───────── LEFT: Text ───────── */}
+        {/* LEFT: Text */}
         <div className="menu-copy">
           <p className="menu-label">Our Specialties</p>
 
@@ -88,51 +84,35 @@ export default function Menu() {
           <p className="menu-tagline">Creativity is always on our menu.</p>
         </div>
 
-        {/* ───────── RIGHT: Image + arrows ───────── */}
+        {/* RIGHT: Image + arrows */}
         <div className="menu-visual">
           <span className="menu-ring menu-ring--outer" aria-hidden="true" />
           <span className="menu-ring menu-ring--inner" aria-hidden="true" />
 
-          {/* <div className="menu-image-frame">
+          <div className="menu-image-frame">
+            <button
+              type="button"
+              className="menu-image-click menu-image-click--left"
+              onClick={goPrev}
+              aria-label="Previous dish"
+            />
+            <button
+              type="button"
+              className="menu-image-click menu-image-click--right"
+              onClick={goNext}
+              aria-label="Next dish"
+            />
+
             {signatureDishes.map((dish, i) => (
               <img
                 key={dish.id}
                 src={dish.image}
                 alt={dish.alt}
                 loading={i === 0 ? "eager" : "lazy"}
-                className={`menu-image ${
-                  i === activeIndex ? "is-active" : ""
-                }`}
+                className={`menu-image ${i === activeIndex ? "is-active" : ""}`}
               />
             ))}
-          </div> */}
-          <div className="menu-image-frame">
-  <button
-    type="button"
-    className="menu-image-click menu-image-click--left"
-    onClick={goPrev}
-    aria-label="Previous dish"
-  />
-
-  <button
-    type="button"
-    className="menu-image-click menu-image-click--right"
-    onClick={goNext}
-    aria-label="Next dish"
-  />
-
-  {signatureDishes.map((dish, i) => (
-    <img
-      key={dish.id}
-      src={dish.image}
-      alt={dish.alt}
-      loading={i === 0 ? "eager" : "lazy"}
-      className={`menu-image ${
-        i === activeIndex ? "is-active" : ""
-      }`}
-    />
-  ))}
-</div>
+          </div>
 
           <button
             type="button"
@@ -154,7 +134,7 @@ export default function Menu() {
         </div>
       </div>
 
-      {/* ───────── DOTS ───────── */}
+      {/* DOTS */}
       <div className="menu-dots" role="tablist" aria-label="Signature dishes">
         {signatureDishes.map((dish, i) => (
           <button

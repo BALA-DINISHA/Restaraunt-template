@@ -1,7 +1,8 @@
 import { useState,useEffect } from "react";
-
+import { useRestaurant } from "../context/RestaurantContext";
 function Navbar(props){
 
+    const { profile } = useRestaurant();
     const [menuOpen,setMenuOpen]=useState(false)
     const navItems = ["Home", "About", "Menu", "Gallery","Contact"];
     const [scrolled,setScrolled]=useState(false)
@@ -68,7 +69,7 @@ function Navbar(props){
 >
             
            <div className="logo">
-            {props.restaurantName}
+            {profile.name}
             </div>
 
             <button className="menu-button" onClick={
