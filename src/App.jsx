@@ -1,3 +1,4 @@
+// src/App.jsx
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { RestaurantProvider } from "./context/RestaurantContext";
@@ -13,14 +14,17 @@ import Footer from "./components/footer";
 
 // Admin
 import AdminLayout from "./admin/AdminLayout";
+import ProtectedRoute from "./admin/ProtectedRoute";
+import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
+import AdminProfile from "./admin/AdminProfile";
 import AdminHero from "./admin/AdminHero";
 import AdminAbout from "./admin/AdminAbout";
 import AdminSignature from "./admin/AdminSignature";
 import AdminGallery from "./admin/AdminGallery";
 import AdminContact from "./admin/AdminContact";
 import AdminFooter from "./admin/AdminFooter";
-import AdminProfile from "./admin/AdminProfile";
+
 import "./App.css";
 
 function CustomerSite() {
@@ -40,7 +44,7 @@ function CustomerSite() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <main className="scroll-sections">
         <Hero />
         <About />
@@ -60,8 +64,18 @@ export default function App() {
         {/* Customer site */}
         <Route path="/" element={<CustomerSite />} />
 
-        {/* Admin — nested routes inside a shared layout */}
-        <Route path="/admin" element={<AdminLayout />}>
+        {/* Public admin login */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* Protected admin — everything below requires login */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<AdminDashboard />} />
           <Route path="profile" element={<AdminProfile />} />
           <Route path="hero" element={<AdminHero />} />

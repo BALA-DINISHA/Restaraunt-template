@@ -1,6 +1,7 @@
 // src/admin/AdminDashboard.jsx
 import { useRef } from "react";
 import { useRestaurant } from "../context/RestaurantContext";
+import { useAuth } from "../context/AuthContext";
 
 export default function AdminDashboard() {
   const {
@@ -8,6 +9,7 @@ export default function AdminDashboard() {
     heroState, aboutState, signatureState, galleryState, contactState, footerState,
   } = useRestaurant();
 
+  const { user } = useAuth();
   const fileInputRef = useRef(null);
 
   const stats = [
@@ -65,7 +67,9 @@ export default function AdminDashboard() {
       <header className="admin-page-header">
         <div>
           <h1 className="admin-page-title">Dashboard</h1>
-          <p className="admin-page-subtitle">Overview and bulk actions.</p>
+          <p className="admin-page-subtitle">
+            {user?.email ? `Signed in as ${user.email}` : "Overview and bulk actions."}
+          </p>
         </div>
 
         <div className="admin-savebar">

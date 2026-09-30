@@ -256,5 +256,5 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
-**Built with care by [Your Name]**  
+**Built with care by  DINISHA**  
 [Portfolio](https://your-site.com) · [LinkedIn](https://linkedin.com/in/your-profile)
